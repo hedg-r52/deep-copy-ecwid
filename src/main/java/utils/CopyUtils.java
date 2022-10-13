@@ -2,8 +2,10 @@ package utils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -79,9 +81,9 @@ public class CopyUtils {
                 var collection = ((Collection) field.get(obj));
                 Collection newCollection;
                 if (type.getTypeName().contains(".List")) {
-                    newCollection = (Collection) collection.stream().collect(Collectors.toList());
+                    newCollection = new ArrayList();
                 } else {
-                    newCollection = (Collection) collection.stream().collect(Collectors.toSet());
+                    newCollection = new HashSet();
                 }
                 for (Object o : collection) {
                     newCollection.add(deepCopy(o));

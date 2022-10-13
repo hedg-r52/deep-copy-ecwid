@@ -34,7 +34,7 @@ class CopyUtilsTest {
         assertEquals(man.getAge(), copyMan.getAge());
         assertEquals(man.getFavoriteBooks().get(0), copyMan.getFavoriteBooks().get(0));
         assertEquals(man.getFavoriteBooks().get(1), copyMan.getFavoriteBooks().get(1));
-        assertNotEquals(man.getFavoriteBooks(), copyMan.getFavoriteBooks());
+        assertFalse(man.getFavoriteBooks() == copyMan.getFavoriteBooks());
         assertNotEquals(man, copyMan);
     }
 
